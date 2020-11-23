@@ -5,6 +5,7 @@ import matplotlib.patches as mpatches
 import platform
 
 option = input(
+    'Digite 0 para sair:\n'
     'Digite 1 para visualizar o gráfico da porcentagem do uso de memória:\n'
     'Digite 2 para visualizar o gráfico da porcentagem do uso de CPU:\n'
     'Digite 3 para visualizar o gráfico da porcentagem do uso de disco:\n'
@@ -14,7 +15,9 @@ def show_machine_ip():
     dict_interfaces = psutil.net_if_addrs()
     return dict_interfaces['Ethernet'][0].address
 
-plt.title('Monitoramento e Análise do Computador\n')
+def show_plt_title(scope): 
+    plt.title(f'Monitoramento e Análise do Computador - {scope}\n')
+
 plt.ylabel(f'IP: {show_machine_ip()}\n')
 plt.ylim(0, 100)
 
@@ -89,21 +92,36 @@ def show_disk_usage_graph():
         f"Monitoramento finalizado com sucesso!\n"
         f"Total: {total} GB / Em uso: {in_use} GB / Livre: {free} GB"
     )
+
+while option != 0:
+    if int(option) == 0:
+        break
+    elif int(option) == 1:
+        show_plt_title('Memória')
+        plt.ion()
+        show_memory_usage_graph()
+        plt.ioff()
+        plt.show()
+    elif int(option) == 2:
+        show_plt_title('CPU')
+        plt.ion()
+        show_cpu_usage_graph()
+        plt.ioff()
+        plt.show()
+    elif int(option) == 3:
+        show_plt_title('Disco')
+        plt.ion()
+        show_disk_usage_graph()
+        plt.ioff()
+        plt.show()
+    else:
+        print("Opção inválida")
     
-if int(option) == 1:
-    plt.ion()
-    show_memory_usage_graph()
-    plt.ioff()
-    plt.show()
-elif int(option) == 2:
-    plt.ion()
-    show_cpu_usage_graph()
-    plt.ioff()
-    plt.show()
-elif int(option) == 3:
-    plt.ion()
-    show_disk_usage_graph()
-    plt.ioff()
-    plt.show()
-else:
-    print("Opção inválida")
+    option = input(
+        'Digite 0 para sair:\n'
+        'Digite 1 para visualizar o gráfico da porcentagem do uso de memória:\n'
+        'Digite 2 para visualizar o gráfico da porcentagem do uso de CPU:\n'
+        'Digite 3 para visualizar o gráfico da porcentagem do uso de disco:\n'
+    )
+
+print('FIM')
