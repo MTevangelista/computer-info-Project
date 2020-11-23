@@ -2,6 +2,7 @@ import psutil
 import numpy as np 
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import platform
 
 option = input(
     'Digite 1 para visualizar o gráfico da porcentagem do uso de memória:\n'
@@ -16,6 +17,7 @@ def show_machine_ip():
 plt.title(
     'Monitoramento e Análise do Computador\n'
     f'IP: {show_machine_ip()}'
+    f'{platform.processor()}'
 )
 plt.ylim(0, 100)
 
