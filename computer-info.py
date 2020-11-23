@@ -9,7 +9,14 @@ option = input(
     'Digite 3 para visualizar o gráfico da porcentagem do uso de disco:\n'
 )
 
+def show_machine_ip():
+    dict_interfaces = psutil.net_if_addrs()
+    return dict_interfaces['Ethernet'][0].address
+
+show_machine_ip()
+
 plt.title("Monitoramento e Análise do Computador")
+plt.xlabel(f"IP: {show_machine_ip()}")  
 plt.ylim(0, 100)
 
 def show_memory_usage_graph():
