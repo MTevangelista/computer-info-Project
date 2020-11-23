@@ -13,45 +13,65 @@ def show_machine_ip():
     dict_interfaces = psutil.net_if_addrs()
     return dict_interfaces['Ethernet'][0].address
 
-show_machine_ip()
-
-plt.title("Monitoramento e Análise do Computador")
-plt.xlabel(f"IP: {show_machine_ip()}")  
+plt.title(
+    'Monitoramento e Análise do Computador\n'
+    f'IP: {show_machine_ip()}'
+)
 plt.ylim(0, 100)
 
 def show_memory_usage_graph():
     values = []
-    for i in range(10):
+    time = int(input('Digite o tempo de monitoramento:\n'))
+
+    for i in range(time-1, -1, -1):
+        plt.xlabel(f"Tempo de monitoramento: {i}")
         memory = psutil.virtual_memory()
         values.append(memory)
-   
-    plt.plot(values)
+        plt.plot(values, 'r-o')
+        plt.pause(0.5)
     
-    plt.show()
-
+    plt.xlabel(f"Monitoramento finalizado com sucesso!")
+   
 def show_cpu_usage_graph():
     values = []
-    for i in range(5):
-        cpu = psutil.cpu_percent(interval=1)
+    time = int(input('Digite o tempo de monitoramento:\n'))
+
+    for i in range(time-1, -1, -1):
+        plt.xlabel(f"Tempo de monitoramento: {i}")
+        cpu = psutil.cpu_percent(interval=0.5)
         values.append(cpu)
-
-    plt.plot(values)
-    plt.show()
-
+        plt.plot(values, 'r-o')
+        plt.pause(0.5)
+          
+    plt.xlabel(f"Monitoramento finalizado com sucesso!")  
+   
 def show_disk_usage_graph():
     values = []
-    for i in range(5):
+    time = int(input('Digite o tempo de monitoramento:\n'))
+
+    for i in range(time-1, -1, -1):
+        plt.xlabel(f"Tempo de monitoramento: {i}")
         disk = psutil.disk_usage('.')
         values.append(disk)
+        plt.plot(values, 'r-o')
+        plt.pause(0.5)
     
-    plt.plot(values)
-    plt.show()
-
+    plt.xlabel(f"Monitoramento finalizado com sucesso!")
+    
 if int(option) == 1:
+    plt.ion()
     show_memory_usage_graph()
+    plt.ioff()
+    plt.show()
 elif int(option) == 2:
+    plt.ion()
     show_cpu_usage_graph()
+    plt.ioff()
+    plt.show()
 elif int(option) == 3:
+    plt.ion()
     show_disk_usage_graph()
+    plt.ioff()
+    plt.show()
 else:
     print("Opção inválida")
