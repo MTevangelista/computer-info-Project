@@ -16,23 +16,31 @@ def show_machine_ip():
 
 plt.title(
     'Monitoramento e Análise do Computador\n'
-    f'IP: {show_machine_ip()}'
     f'{platform.processor()}'
 )
+plt.ylabel(f'IP: {show_machine_ip()}\n')
 plt.ylim(0, 100)
 
 def show_memory_usage_graph():
     values = []
     time = int(input('Digite o tempo de monitoramento:\n'))
+    memory = psutil.virtual_memory()
+    capacity = round(memory.total/(1024*1024*1024), 2) # convert to GB
 
     for i in range(time-1, -1, -1):
-        plt.xlabel(f"Tempo de monitoramento: {i}")
-        memory = psutil.virtual_memory()
+        plt.xlabel(
+            f"Tempo de monitoramento: {i}\n"
+            f"Total de memória: {capacity} GB"
+        )
+        memory = psutil.virtual_memory().percent
         values.append(memory)
         plt.plot(values, 'r-o')
-        plt.pause(0.5)
+        plt.pause(1)
     
-    plt.xlabel(f"Monitoramento finalizado com sucesso!")
+    plt.xlabel(
+        f"Monitoramento finalizado com sucesso!\n"
+        f"Total de memória: {capacity} GB"
+    )
    
 def show_cpu_usage_graph():
     values = []
