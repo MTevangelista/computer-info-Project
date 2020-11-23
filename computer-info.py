@@ -14,10 +14,7 @@ def show_machine_ip():
     dict_interfaces = psutil.net_if_addrs()
     return dict_interfaces['Ethernet'][0].address
 
-plt.title(
-    'Monitoramento e Análise do Computador\n'
-    f'{platform.processor()}'
-)
+plt.title('Monitoramento e Análise do Computador\n')
 plt.ylabel(f'IP: {show_machine_ip()}\n')
 plt.ylim(0, 100)
 
@@ -47,15 +44,28 @@ def show_memory_usage_graph():
 def show_cpu_usage_graph():
     values = []
     time = int(input('Digite o tempo de monitoramento:\n'))
-
+    processor_name = platform.processor()
+    cpu_freq = psutil.cpu_freq().current
+    cpu_freq_total = psutil.cpu_freq().max
+    cpu_count = psutil.cpu_count()
+    cpu_count_logical = psutil.cpu_count(logical=False)
+    
     for i in range(time-1, -1, -1):
-        plt.xlabel(f"Tempo de monitoramento: {i}")
-        cpu = psutil.cpu_percent(interval=0.5)
+        plt.xlabel(
+            f"Tempo de monitoramento: {i}\n"
+            f"CPU: {processor_name} / frequência de uso: {cpu_freq} / frequência total: {cpu_freq_total}\n"
+            f"Número total de núcleos: {cpu_count} / Número total de threads: {cpu_count_logical}"
+        )
+        cpu = psutil.cpu_percent()
         values.append(cpu)
         plt.plot(values, 'r-o')
-        plt.pause(0.5)
+        plt.pause(1)
           
-    plt.xlabel(f"Monitoramento finalizado com sucesso!")  
+    plt.xlabel(
+        f"Monitoramento finalizado com sucesso!\n"
+        f"CPU: {processor_name} / frequência de uso: {cpu_freq} / frequência total: {cpu_freq_total}\n"
+        f"Número total de núcleos: {cpu_count} / Número total de threads: {cpu_count_logical}"
+    )  
    
 def show_disk_usage_graph():
     values = []
