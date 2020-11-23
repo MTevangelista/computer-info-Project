@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import platform
 
 option = input(
+    'Tecle "Barra" para visualizar um resumo de todas as informações:\n'
     'Digite 0 para sair:\n'
     'Digite 1 para visualizar o gráfico da porcentagem do uso de memória:\n'
     'Digite 2 para visualizar o gráfico da porcentagem do uso de CPU:\n'
@@ -92,7 +93,19 @@ def show_disk_usage_graph():
     )
 
 while option != 0:
-    if int(option) == 0:
+    if option == " ":
+        print("Resumo:")
+        memory = psutil.virtual_memory()
+        memory_total = round(memory.total/(1024*1024*1024), 2) # convert to GB
+        disk = psutil.disk_usage('.')
+        disk_total = round(disk.total/(1024*1024*1024), 2) # convert to GB
+        print(
+            f'IP: {show_machine_ip()}\n'
+            f'Memória total: {memory_total} GB\n'
+            f'Nome do processador: {platform.processor()}\n'
+            f'Disco Total: {disk_total} GB\n'
+        )
+    elif int(option) == 0:
         break
     elif int(option) == 1:
         show_plt_title('Memória')
@@ -116,6 +129,7 @@ while option != 0:
         print("Opção inválida")
     
     option = input(
+        'Tecle "Barra" para visualizar um resumo de todas as informações:\n'
         'Digite 0 para sair:\n'
         'Digite 1 para visualizar o gráfico da porcentagem do uso de memória:\n'
         'Digite 2 para visualizar o gráfico da porcentagem do uso de CPU:\n'
