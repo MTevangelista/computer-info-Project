@@ -58,15 +58,25 @@ def show_cpu_usage_graph():
 def show_disk_usage_graph():
     values = []
     time = int(input('Digite o tempo de monitoramento:\n'))
+    disk = psutil.disk_usage('.')
+    total = round(disk.total/(1024*1024*1024), 2) # convert to GB
+    in_use = round(disk.used/(1024*1024*1024), 2) # convert to GB
+    free = round(disk.free/(1024*1024*1024), 2) # convert to GB
 
     for i in range(time-1, -1, -1):
-        plt.xlabel(f"Tempo de monitoramento: {i}")
-        disk = psutil.disk_usage('.')
+        plt.xlabel(
+            f"Tempo de monitoramento: {i}\n"
+            f"Total: {total} GB / Em uso: {in_use} GB / Livre: {free} GB"
+        )
+        disk = psutil.disk_usage('.').percent
         values.append(disk)
         plt.plot(values, 'r-o')
-        plt.pause(0.5)
+        plt.pause(1)
     
-    plt.xlabel(f"Monitoramento finalizado com sucesso!")
+    plt.xlabel(
+        f"Monitoramento finalizado com sucesso!\n"
+        f"Total: {total} GB / Em uso: {in_use} GB / Livre: {free} GB"
+    )
     
 if int(option) == 1:
     plt.ion()
