@@ -25,12 +25,14 @@ def show_memory_usage_graph():
     values = []
     time = int(input('Digite o tempo de monitoramento:\n'))
     memory = psutil.virtual_memory()
-    capacity = round(memory.total/(1024*1024*1024), 2) # convert to GB
+    total = round(memory.total/(1024*1024*1024), 2) # convert to GB
+    in_use = round(memory.used/(1024*1024*1024), 2) # convert to GB
+    free = round(memory.used/(1024*1024*1024), 2) # convert to GB
 
     for i in range(time-1, -1, -1):
         plt.xlabel(
             f"Tempo de monitoramento: {i}\n"
-            f"Total de memória: {capacity} GB"
+            f"Total: {total} GB / Em uso: {in_use} GB / Livre: {free} GB"
         )
         memory = psutil.virtual_memory().percent
         values.append(memory)
@@ -39,7 +41,7 @@ def show_memory_usage_graph():
     
     plt.xlabel(
         f"Monitoramento finalizado com sucesso!\n"
-        f"Total de memória: {capacity} GB"
+        f"Total: {total} GB / Em uso: {in_use} GB / Livre: {free} GB"
     )
    
 def show_cpu_usage_graph():
