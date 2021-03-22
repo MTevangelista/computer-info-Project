@@ -20,9 +20,10 @@ def show_options():
     return option
 
 def show_machine_ip():
-    hostname = socket.gethostname()
-    ip_internal = socket.gethostbyname(hostname)
-    return ip_internal
+    print("")
+    # hostname = socket.gethostbyname("")
+    # ip_internal = socket.gethostbyname(hostname)
+    # return ip_internal
 
 def show_plt_title(scope): 
     plt.title(f'Monitoramento e Análise do Computador - {scope}\n')
