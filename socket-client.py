@@ -1,4 +1,5 @@
 import socket, time, pickle
+import matplotlib.pyplot as plt
 
 def show_options():
     option = input(
@@ -38,6 +39,15 @@ def show_loading(value):
             print(f"[{i} / {value}] -> Carregando informações...")
             time.sleep(1.2)
 
+# ---------------------------------------------------
+def show_graphic(scope, data):
+    plt.title(f'Monitoramento e Análise do Computador - {scope}\n')
+    plt.plot(result, 'r-o')
+    plt.savefig(f'images/{scope.lower()}.png')
+    plt.show()
+    plt.close()
+    plt.cla()
+
 HOST = socket.gethostbyname("")                     
 PORT = 9008
 BUFFER_SIZE = 1024
@@ -62,6 +72,7 @@ try:
                 monitoring_time = list_of_information[1]
                 show_loading(monitoring_time)
                 result = get_response()
+                show_graphic('Processamento', result)
                 print(f"No tempo de {monitoring_time}x, foram registrados as seguintes porcentagens: {result}\n")
             elif option == "2":
                 list_of_information = get_values_to_send_request()
