@@ -42,7 +42,7 @@ def show_loading(value):
 # ---------------------------------------------------
 def show_graphic(scope, data):
     plt.title(f'Monitoramento e Análise do Computador - {scope}\n')
-    plt.plot(result, 'r-o')
+    plt.plot(data, 'r-o')
     plt.savefig(f'images/{scope.lower()}.png')
     plt.show()
     plt.close()
@@ -72,8 +72,21 @@ try:
                 monitoring_time = list_of_information[1]
                 show_loading(monitoring_time)
                 result = get_response()
-                show_graphic('Processamento', result)
-                print(f"No tempo de {monitoring_time}x, foram registrados as seguintes porcentagens: {result}\n")
+                processor_name, cpu_freq, cpu_freq_total  = result[0], result[1], result[2]
+                cpu_count, cpu_count_logical, cpu_percent_values = result[3], result[4], result[5]
+                cpu_architecture, cpu_name, cpu_word = result[6], result[7], result[8]
+                show_graphic('Processamento', cpu_percent_values)
+                print(
+                    f"Nome de CPU: {cpu_name}\n"
+                    f"Tipo da arquitetura (arch): {cpu_architecture}\n"
+                    f"Palavra do processador (em bits): {cpu_word}\n"
+                    f"Nome do processador: {processor_name}\n"
+                    f"frequência de uso: {cpu_freq}\n"
+                    f"frequência total: {cpu_freq_total}\n"
+                    f"Número total de núcleos: {cpu_count}\n"
+                    f"Número total de threads: {cpu_count_logical}\n"
+                    f"No tempo de {monitoring_time}x, foram registrados as seguintes porcentagens: {cpu_percent_values}\n"
+                )
             elif option == "2":
                 list_of_information = get_values_to_send_request()
                 send_resquest(list_of_information)

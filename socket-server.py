@@ -1,4 +1,4 @@
-import socket, psutil, pickle, os, time, netifaces
+import socket, psutil, pickle, os, time, netifaces, platform, cpuinfo
 
 # Cria o socket
 socket_servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -15,12 +15,31 @@ print("Servidor de nome", HOST, "esperando conexão na porta", PORT)
 (socket_cliente,addr) = socket_servidor.accept()
 print("Conectado a:", str(addr))
 
-def get_processing_usage(time):
-  informations = []
-  for i in range(time):
-    cpu_percent = psutil.cpu_percent(interval=1)
-    informations.append(cpu_percent)
-  return informations
+def get_processing_info(time):
+    values = []
+    processor_name = platform.processor()
+    values.append(processor_name)
+    cpu_freq = psutil.cpu_freq().current
+    values.append(cpu_freq)
+    cpu_freq_total = psutil.cpu_freq().max
+    values.append(cpu_freq_total)
+    cpu_count = psutil.cpu_count()
+    values.append(cpu_count)
+    cpu_count_logical = psutil.cpu_count(logical=False)
+    values.append(cpu_count_logical)
+    cpu_percent_values = []
+    for i in range(time):
+        cpu_percent = psutil.cpu_percent(interval=1)
+        cpu_percent_values.append(cpu_percent)
+    values.append(cpu_percent_values)
+    info = cpuinfo.get_cpu_info()
+    cpu_architecture = info['arch']
+    cpu_name = info['brand_raw']
+    cpu_word = info['bits']
+    values.append(cpu_architecture)
+    values.append(cpu_name)
+    values.append(cpu_word)
+    return values
 
 def get_memory_data():
   informations = []
@@ -82,7 +101,7 @@ while True:
     if option == 0:
         break
     if option == 1:
-        result = get_processing_usage(time)
+        result = get_processing_info(time)
         send_response(result)
     elif option == 2:
         result = get_memory_data()
@@ -96,8 +115,6 @@ while True:
     elif option == 5:
         result = network_info()
         send_response(result)
-    # elif option == 0:
-    #     break
 
 # Fecha socket do servidor e cliente
 socket_cliente.close()
