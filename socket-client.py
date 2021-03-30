@@ -91,10 +91,11 @@ try:
                 list_of_information = get_values_to_send_request()
                 send_resquest(list_of_information)
                 result = get_response()
-                memory_capacity, used_memory = result[0], result[1]
+                memory_capacity, used_memory, percent_memory = result[0], result[1], result[2]
                 print(
-                    f"Capacidade de memória: {memory_capacity}\n"
-                    f"Uso de memória: {used_memory}\n"
+                    f"Capacidade de memória: {memory_capacity} GB\n"
+                    f"Uso de memória: {used_memory} GB\n"
+                    f"Percentual de uso de memória: {percent_memory}%\n"
                 )
             elif option == "3":
                 list_of_information = get_values_to_send_request()

@@ -46,8 +46,10 @@ def get_memory_data():
   mem = psutil.virtual_memory()
   memory_capacity = round(mem.total/(1024*1024*1024), 2) # convert to GB
   used_memory = round(mem.used/(1024*1024*1024), 2) # convert to GB
+  percent_memory = mem.percent
   informations.append(memory_capacity)
   informations.append(used_memory)
+  informations.append(percent_memory)
   return informations
 
 def get_files_and_directories():
