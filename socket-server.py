@@ -52,6 +52,15 @@ def get_memory_data():
   informations.append(percent_memory)
   return informations
 
+def get_disk_info():
+    values = []
+    disk = psutil.disk_usage('.')
+    total = round(disk.total/(1024*1024*1024), 2) # convert to GB
+    in_use = round(disk.used/(1024*1024*1024), 2) # convert to GB
+    free = round(disk.free/(1024*1024*1024), 2) # convert to GB
+    percent_disk = disk.percent
+    return (total, in_use, free, percent_disk)
+
 def get_files_and_directories():
     list_of_data = os.listdir()
     dic_arq = {}
@@ -109,12 +118,15 @@ while True:
         result = get_memory_data()
         send_response(result)
     elif option == 3:
-        result = get_files_and_directories()
+        result = get_disk_info()
         send_response(result)
     elif option == 4:
-        result = get_process_data()
+        result = get_files_and_directories()
         send_response(result)
     elif option == 5:
+        result = get_process_data()
+        send_response(result)
+    elif option == 6:
         result = network_info()
         send_response(result)
 

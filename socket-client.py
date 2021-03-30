@@ -6,9 +6,10 @@ def show_options():
         'Digite 0 para sair:\n'
         'Digite 1 para visualizar uso de processamento:\n'
         'Digite 2 para visualizar informações de memória:\n'
-        'Digite 3 para visualizar informações sobre arquivos e diretórios:\n'
-        'Digite 4 para visualizar os nomes de 10 processos que estão executando:\n'
-        'Digite 5 para visualizar as informações de IP, gateway e máscara de subrede da rede:\n'
+        'Digite 3 para visualizar informações de disco:\n'
+        'Digite 4 para visualizar informações sobre arquivos e diretórios:\n'
+        'Digite 5 para visualizar os nomes de 10 processos que estão executando:\n'
+        'Digite 6 para visualizar as informações de IP, gateway e máscara de subrede da rede:\n'
     )
     return option
 
@@ -101,17 +102,28 @@ try:
                 list_of_information = get_values_to_send_request()
                 send_resquest(list_of_information)
                 result = get_response()
-                files, directories = result[0], result[1]
+                total, in_use, free, percent_disk = result[0], result[1], result[2], result[3]
                 print(
-                    f"Arquivos encontrados no diretório atual: {files}\n"
-                    f"Diretótios encontrados: {directories}\n"
+                    f"Capacidade de disco: {total} GB\n"
+                    f"Quantidade de disco em uso: {in_use} GB\n"
+                    f"Quantidade de disco livre: {free} GB\n"
+                    f"Percentual do uso de disco: {percent_disk}%\n"
                 )
             elif option == "4":
                 list_of_information = get_values_to_send_request()
                 send_resquest(list_of_information)
                 result = get_response()
-                print(f"processos em execução: {result}\n")
+                files, directories = result[0], result[1]
+                print(
+                    f"Arquivos encontrados no diretório atual: {files}\n"
+                    f"Diretótios encontrados: {directories}\n"
+                )
             elif option == "5":
+                list_of_information = get_values_to_send_request()
+                send_resquest(list_of_information)
+                result = get_response()
+                print(f"processos em execução: {result}\n")
+            elif option == "6":
                 list_of_information = get_values_to_send_request()
                 send_resquest(list_of_information)
                 result = get_response()
