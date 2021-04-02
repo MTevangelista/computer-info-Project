@@ -1,3 +1,7 @@
+<h1 align="center">
+   Graduação em Engenharia de Software
+</h1>
+
 <p align="center">
    <img width="500px" src="https://github.com/MTevangelista/computer-info-project/blob/main/.github/logo.jpg" alt="Instituto Infnet" width="280"/>
 </p>
@@ -24,6 +28,7 @@
 - [Tabela de Conteúdo](#tabela-de-conte%C3%BAdo)
 - [Sobre o Projeto](#sobre-o-projeto)
   - [Feito Com](#feito-com)
+  - [Linha do tempo](#linha-do-tempo)
 - [Começando](#come%C3%A7ando)
   - [Pré-requisitos](#pr%C3%A9-requisitos)
   - [Instalação](#instala%C3%A7%C3%A3o)
@@ -72,6 +77,39 @@ Abaixo segue o que foi utilizado na criação deste projeto:
 - [os](https://docs.python.org/3/library/os.html) - Este módulo fornece uma maneira simples de usar funcionalidades que são dependentes de sistema operacional.
 
 - [platform](https://docs.python.org/3/library/platform.html) - Este módulo tenta recuperar tantos dados de identificação de plataforma quanto possível.
+
+### Linha do tempo
+
+<h2 align="center">
+   Teste de Performance 3 - TP3
+</h2>
+
+Sobre o entregável:
+- Um aplicativo simples de apresentação gráfica do monitoramento e análise do computador. Ele deverá ser implementado em Python usando módulos como psutil (para capturar dados do sistema computacional) e Pygame (para exibir graficamente os dados).
+
+Funcionalidades implementadas no TP3:
+- Informações associadas ao processador
+<p align="center">
+   <img alt="cpu_code" src=".github/tp3/cpu-code-tp3.png" />
+   <img alt="cpu_graph" src=".github/tp3/cpu-graph-tp3.png" />
+<p>
+- Informações associadas à memória
+<p align="center">
+   <img alt="memory_code" src=".github/tp3/memory-code-tp3.png" />
+   <img alt="memory_graph" src=".github/tp3/memory-graph-tp3.png" />
+<p>
+- Informações associadas ao Disco
+<p align="center">
+   <img alt="disk_code" src=".github/tp3/disk-code-tp3.png" />
+   <img alt="disk_graph" src=".github/tp3/disk-graph-tp3.png" />
+<p>
+- Informações associadas ao IP
+<p align="center">
+   <img alt="ip_code" src=".github/ip-code.png" />
+<p>
+- Informação de nome/modelo da CPU (brand), arquitetura (arch), palavra do processador (bits), frequência total e frequência de uso da CPU e número total de núcleos (núcleo físico) e threads (núcleo lógico)
+
+---
 
 ## Começando
 
