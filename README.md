@@ -115,6 +115,26 @@ Funcionalidades implementadas no TP3: <br><br>
    <img alt="ip_code" src=".github/images/precessing-info.png" />
 <p>
 </details>
+
+<details open>
+<summary>Teste de Performance 4 - TP4</summary>
+<br>
+Sobre o entregável: <br><br>
+- No Teste de Performance 4, foram introduzidas informações sobre arquivos e diretório especificados e sobre processos em execução no computador.
+<br><br>
+Funcionalidades implementadas no TP4: <br><br>
+- Informações associadas a arquivos e diretórios
+<p align="center">
+   <img alt="files-and-directories" src=".github/images/files-and-directories.png" />
+   <img alt="files-and-directories" src=".github/images/files-and-directoriesfiles-and-directories-code.png" />
+<p>
+<br>
+- Informações associadass a processos em execução no computador
+<p align="center">
+   <img alt="cpu_code" src=".github/images/process.png" />
+   <img alt="cpu_graph" src=".github/images/process-code.png" />
+<p>
+</details>
    
 ---
 
