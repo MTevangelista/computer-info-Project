@@ -108,7 +108,10 @@ Funcionalidades implementadas no TP3:
    <img alt="ip_code" src=".github/ip-code.png" />
 <p>
 - Informação de nome/modelo da CPU (brand), arquitetura (arch), palavra do processador (bits), frequência total e frequência de uso da CPU e número total de núcleos (núcleo físico) e threads (núcleo lógico)
-
+<p align="center">
+   <img alt="ip_code" src=".github/images/precessing-info.png" />
+<p>
+   
 ---
 
 ## Começando
