@@ -135,6 +135,29 @@ Funcionalidades implementadas no TP4: <br><br>
    <img alt="cpu_graph" src=".github/images/process-code.png" />
 <p>
 </details>
+
+<details open>
+<summary>Teste de Performance 7 - TP7</summary>
+<br>
+Sobre o entregável: <br><br>
+- No Teste de Performance 7, foram introduzidas informações sobre redes do computador.
+<br><br>
+Funcionalidades implementadas no TP7: <br><br>
+- Informações associadas ao IP, gateway e máscara de subrede da rede
+<p align="center">
+   <img alt="files-and-directories" src=".github/images/network.png" />
+<p>
+<br>
+- Informações associadass ao uso de dados de rede por interface
+<p align="center">
+   <img alt="cpu_code" src=".github/images/net-data-info.png" />
+   <img alt="cpu_graph" src=".github/images/net-data-info-code.png" />
+<p>
+- Informações associadass ao uso de dados de rede por processos
+<p align="center">
+   <img alt="cpu_code" src=".github/images/info-net-pid.png" />
+<p>
+</details>
    
 ---
 
