@@ -80,37 +80,41 @@ Abaixo segue o que foi utilizado na criação deste projeto:
 
 ### Linha do tempo
 
-<h2 align="center">
-   Teste de Performance 3 - TP3
-</h2>
-
-Sobre o entregável:
+<details>
+<summary>Teste de Performance 3 - TP3</summary>
+<br>
+Sobre o entregável: <br><br>
 - Um aplicativo simples de apresentação gráfica do monitoramento e análise do computador. Ele deverá ser implementado em Python usando módulos como psutil (para capturar dados do sistema computacional) e Pygame (para exibir graficamente os dados).
-
-Funcionalidades implementadas no TP3:
+<br><br>
+Funcionalidades implementadas no TP3: <br><br>
 - Informações associadas ao processador
 <p align="center">
    <img alt="cpu_code" src=".github/tp3/cpu-code-tp3.png" />
    <img alt="cpu_graph" src=".github/tp3/cpu-graph-tp3.png" />
 <p>
+<br><br>
 - Informações associadas à memória
 <p align="center">
    <img alt="memory_code" src=".github/tp3/memory-code-tp3.png" />
    <img alt="memory_graph" src=".github/tp3/memory-graph-tp3.png" />
 <p>
+<br><br>
 - Informações associadas ao Disco
 <p align="center">
    <img alt="disk_code" src=".github/tp3/disk-code-tp3.png" />
    <img alt="disk_graph" src=".github/tp3/disk-graph-tp3.png" />
 <p>
+<br><br>
 - Informações associadas ao IP
 <p align="center">
    <img alt="ip_code" src=".github/ip-code.png" />
 <p>
+<br><br>
 - Informação de nome/modelo da CPU (brand), arquitetura (arch), palavra do processador (bits), frequência total e frequência de uso da CPU e número total de núcleos (núcleo físico) e threads (núcleo lógico)
 <p align="center">
    <img alt="ip_code" src=".github/images/precessing-info.png" />
 <p>
+</details>
    
 ---
 
