@@ -116,7 +116,7 @@ Funcionalidades implementadas no TP3: <br><br>
 <p>
 </details>
 
-<details open>
+<details>
 <summary>Teste de Performance 4 - TP4</summary>
 <br>
 Sobre o entregável: <br><br>
@@ -136,7 +136,25 @@ Funcionalidades implementadas no TP4: <br><br>
 <p>
 </details>
 
-<details open>
+<details>
+<summary>Teste de Performance 6 - TP6</summary>
+<br>
+Sobre o entregável: <br><br>
+- No Teste de Performance 6, foram introduzidas informações sobre subrede de um IP especificado e sobre as portas desse IP.
+<br><br>
+Funcionalidades implementadas no TP6: <br><br>
+- Informações sobre as máquinas pertencentes à sub-rede do IP específico
+<p align="center">
+   <img alt="files-and-directories" src=".github/images/tp6-1.png" />
+<p>
+<br>
+- Informações sobre as portas dos diferentes IPs obtidos nessa sub rede
+<p align="center">
+   <img alt="cpu_code" src=".github/images/tp6-2.png" />
+<p>
+</details>
+
+<details>
 <summary>Teste de Performance 7 - TP7</summary>
 <br>
 Sobre o entregável: <br><br>
