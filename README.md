@@ -137,6 +137,19 @@ Funcionalidades implementadas no TP4: <br><br>
 </details>
 
 <details>
+<summary>Teste de Performance 5 - TP5</summary>
+<br>
+Sobre o entregável: <br><br>
+- No Teste de Performance 5, foram introduzidas informações associadas ao tempo total utilizado para mostrar resultado
+<br><br>
+Funcionalidades implementadas no TP5: <br><br>
+- Informações sobre o tempo utilizado para mostrar resultado
+<p align="center">
+   <img alt="tp5" src=".github/images/tp5.png" />
+<p>
+</details>
+
+<details>
 <summary>Teste de Performance 6 - TP6</summary>
 <br>
 Sobre o entregável: <br><br>
