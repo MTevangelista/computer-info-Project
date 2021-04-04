@@ -212,7 +212,7 @@ Para instalar esse projeto, o processo é bem simples. Basta utilizar o seguinte
 
 ```bash
 # Clone este repositório
-$ https://github.com/MTevangelista/computer-info-project.git
+$ git clone https://github.com/MTevangelista/computer-info-project.git
 ```
 
 ### Instale as bibliotecas
