@@ -1,5 +1,6 @@
 import socket, time, pickle
 import matplotlib.pyplot as plt
+from tabulate import tabulate
 
 def show_options():
     option = input(
@@ -10,6 +11,7 @@ def show_options():
         'Digite 4 para visualizar informações sobre arquivos e diretórios:\n'
         'Digite 5 para visualizar os nomes de 10 processos que estão executando:\n'
         'Digite 6 para visualizar as informações de IP, gateway e máscara de subrede da rede:\n'
+        'Digite 7 para visualizar as informações pertencentes a subrede do IP específico:\n'
     )
     return option
 
@@ -133,6 +135,14 @@ try:
                     f"Gateway: {gateway}\n"
                     f"Máscara de subrede: {subnet_mask}\n"
                 )
+            elif option == "7":
+                list_of_information = get_values_to_send_request()
+                send_resquest(list_of_information)
+                result = get_response()
+                print(tabulate(result, 
+                    headers=["Host", "Protocolo", "Porta", "Status"], 
+                    tablefmt="fancy_grid"))
+                print()
             option = show_options()
 except Exception as erro:
     print('deu erro')
