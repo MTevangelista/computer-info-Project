@@ -1,4 +1,5 @@
 import socket, psutil, pickle, os, time, netifaces, platform, cpuinfo
+from random import randrange
 
 # Cria o socket
 socket_servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
@@ -94,6 +95,17 @@ def network_info():
     subnet_mask = info['en1'][0][2]
     return (ip, gateway, subnet_mask)
 
+def get_subnetwork_info():
+    data = []
+    
+    for i in range(8):
+        host = f"192.168.0.{i}"
+        port = randrange(10, 1000)
+        info = [host, "tcp", port, "open"]
+        data.append(info)
+    
+    return data
+
 def get_response():
   info_bytes = socket_cliente.recv(BUFFER_SIZE)
   list_of_data = pickle.loads(info_bytes)
@@ -128,6 +140,9 @@ while True:
         send_response(result)
     elif option == 6:
         result = network_info()
+        send_response(result)
+    elif option == 7:
+        result = get_subnetwork_info()
         send_response(result)
 
 # Fecha socket do servidor e cliente
