@@ -52,7 +52,7 @@ def show_graphic(scope, data):
     plt.cla()
 
 HOST = socket.gethostbyname("")                     
-PORT = 9008
+PORT = 9009
 BUFFER_SIZE = 1024
 
 # Cria o socket
@@ -91,10 +91,16 @@ try:
                     f"No tempo de {monitoring_time}x, foram registrados as seguintes porcentagens: {cpu_percent_values}\n"
                 )
             elif option == "2":
+                initial_time = time.time()
+                initial_time_clock = time.process_time()
                 list_of_information = get_values_to_send_request()
                 send_resquest(list_of_information)
                 result = get_response()
                 memory_capacity, used_memory, percent_memory = result[0], result[1], result[2]
+                end_time = time.time()
+                end_time_clock = time.process_time()
+                print(f'O tempo total utilizado para chamar a função foi: {end_time - initial_time}')
+                print(f'A quantidade total de clocks utilizados pela CPU para a realização dessa função foi: {end_time_clock - initial_time_clock}\n')
                 print(
                     f"Capacidade de memória: {memory_capacity} GB\n"
                     f"Uso de memória: {used_memory} GB\n"

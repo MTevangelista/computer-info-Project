@@ -5,7 +5,7 @@ from random import randrange
 socket_servidor = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 # Obtem o nome da máquina
 HOST = socket.gethostbyname("")                     
-PORT = 9008
+PORT = 9009
 BUFFER_SIZE = 1024
 # Associa a PORT
 socket_servidor.bind((HOST, PORT))
