@@ -43,7 +43,7 @@
   <img alt="design do projeto" src="https://fontmeme.com/permalink/210402/a5270e816a2709481fa4348626907f95.png" />
 <p>
   
-A proposta do Projeto de Bloco de Arquitetura de Computadores, Sistemas Operacionais e Redes projeto é um software cliente-servidor em Python que explore conceitos de arquitetura de redes, arquitetura de computadores e/ou de sistemas operacionais, acompanhado de relatório explicativo. </br>
+A proposta do Projeto de Bloco de Arquitetura de Computadores, Sistemas Operacionais e Redes é um software cliente-servidor em Python que explore conceitos de arquitetura de redes, arquitetura de computadores e/ou de sistemas operacionais, acompanhado de relatório explicativo. </br>
 Esse software cliente-servidor possui as seguintes funcionalidades:
 - Capturas das informações dos diretórios, como nome, tamanho, localização, data de criação, data de modificação, tipo, etc.
 - Capturas das informações dos processos do sistema, como PID, nome do executável, consumo de processamento, consumo de memória.
@@ -164,6 +164,9 @@ Funcionalidades implementadas no TP6: <br><br>
 - Informações sobre as portas dos diferentes IPs obtidos nessa sub rede
 <p align="center">
    <img alt="cpu_code" src=".github/images/tp6-2.png" />
+<p>
+<p align="center">
+   <img alt="cpu_code" src=".github/images/get_subnetwork_info.png" />
 <p>
 </details>
 
